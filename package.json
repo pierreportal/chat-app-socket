@@ -21,6 +21,11 @@
   "devDependencies": {
     "nodemon": "^1.12.1"
   },
+  "nodemonConfig": {
+    "igniore": [
+      "client/*"
+    ]
+  },
   "main": "app.js",
   "author": "",
   "license": "ISC",
