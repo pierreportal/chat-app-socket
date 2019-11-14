@@ -68,25 +68,32 @@ html {
   list-style: none;
   padding: 0;
 }
+.chat-bubble-row{
+  margin-top: 30px;
+  display: flex;
+  flex-direction: row;
+}
 .chat-bubble-me-row{
+  margin-top: 30px;
   display: flex;
   flex-direction: row-reverse;
 }
 .chat-bubble{
-  padding: 20px;
+  padding: 10px 20px 20px 20px;
   background-color: lightcyan;
   margin-bottom: 20px;
-  border-radius: 20px;
+  border-radius: 0 50px 50px 50px;
   display: inline-block;
   /* width: auto; */
 }
 .chat-bubble-me{
   /* margin-left: 400px; */
-  display: flex;
-  padding: 20px;
+  text-align: right;
+  /* display: flex; */
+  padding: 10px 20px 20px 20px;
   background-color: lightgreen;
   margin-bottom: 20px;
-  border-radius: 20px;
+  border-radius:  50px 0 50px 50px;
   display: inline-block;
   /* width: auto; */
 }
@@ -98,7 +105,7 @@ html {
 .chat-bubble .contact-head{
   /* margin-top:-30px;
   margin-left:-30px; */
-  border:solid 3px white
+  border:solid 3px lightcyan
 }
 .chat-bubble-me p {
   /* display: inline-block; */
@@ -108,13 +115,20 @@ html {
 .chat-bubble-me .contact-head{
   /* margin-top:-30px;
   margin-left:-30px; */
-  border:solid 3px white
+  border:solid 3px lightgreen
 }
 .chat-bubble-head{
-  margin-top:-30px;
-  margin-left:-30px;
+  margin-top:-50px;
+  margin-left:-70px;
   display: flex;
   flex-direction: row;
+  align-items: center;
+}
+.chat-bubble-head-me{
+  margin-top:-50px;
+  margin-right:-80px; 
+  display: flex;
+  flex-direction: row-reverse;
   align-items: center;
 }
 .chat-by{

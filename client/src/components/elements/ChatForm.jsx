@@ -14,6 +14,9 @@ export default class ChatForm extends Component {
   handleSubmit = e => {
     e.preventDefault()
     this.props.postMessage(this.state.message)
+    this.setState({
+      message: ""
+    })
   }
 
   render() {

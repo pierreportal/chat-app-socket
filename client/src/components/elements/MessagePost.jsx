@@ -10,16 +10,16 @@ export default class MessagePost extends Component {
 
     let style = ''
     this.state.by._id === this.state.user._id ?
-      style = 'chat-bubble-me'
+      style = '-me'
       :
-      style = 'chat-bubble'
+      style = ''
     return (
-      <div className={`${style}-row`}>
-        <div className={style}>
-          <div className='chat-bubble-head'>
+      <div className={`chat-bubble${style}-row`}>
+        <div className={`chat-bubble${style}`} >
+          <div className={`chat-bubble-head${style}`}>
             <div className='contact-head' style={{ 'backgroundImage': `url(${this.state.by.picture})` }}></div>
-            <span className='chat-by'>{this.state.by.firstname}</span>
           </div>
+          <span className='chat-by'>{this.state.by._id === this.state.user._id ? 'me' : this.state.by.firstname}</span>
 
           <p>{this.state.content}</p>
 
