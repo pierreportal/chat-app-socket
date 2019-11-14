@@ -54,5 +54,8 @@ app.locals.title = 'Express - Generated with IronGenerator';
 const index = require('./routes/index');
 app.use('/', index);
 
+const chat = require('./routes/chat');
+app.use('/chat', chat);
+
 
 module.exports = app;

@@ -1,0 +1,30 @@
+[
+  {
+    "username": "Cocoapuff",
+    "firstname": "Montasar",
+    "lastname": "Jarraya",
+    "password": "qwertyui",
+    "picture": "https://images.unsplash.com/photo-1499996860823-5214fcc65f8f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2802&q=80"
+  },
+  {
+    "username": "Pipo",
+    "firstname": "Pierre",
+    "lastname": "Portal",
+    "password": "qwertyui",
+    "picture": "https://images.unsplash.com/photo-1548544149-4835e62ee5b3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80"
+  },
+  {
+    "username": "Dalidada",
+    "firstname": "Dalina",
+    "lastname": "Weidinger",
+    "password": "qwertyui",
+    "picture": "https://images.unsplash.com/photo-1514846326710-096e4a8035e0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80"
+  },
+  {
+    "username": "Mastermin",
+    "firstname": "Min",
+    "lastname": "Sheng Ang",
+    "password": "qwertyui",
+    "picture": "https://images.unsplash.com/photo-1543246239-7ae3ded686ec?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2757&q=80"
+  }
+]
