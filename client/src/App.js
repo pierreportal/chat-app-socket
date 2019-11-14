@@ -8,10 +8,13 @@ export default class App extends Component {
     user: this.props.user,
     partner: null
   }
-  setPartner = partner => {
-    this.setState({ partner })
+  setPartner = partner => { // NOT WORKING
+    console.log('partner')
+    this.setState({ partner: partner }, () => console.log(this.state.partner))
   }
+
   render() {
+
     return (
       <div id="app">
         <Sidebar user={this.state.user} setPartner={() => this.setPartner} />

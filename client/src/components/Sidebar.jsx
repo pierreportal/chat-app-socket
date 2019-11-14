@@ -25,7 +25,8 @@ export default class Sidebar extends Component {
     const filteredContacts = this.state.contacts && this.state.contacts.filter(x => x.firstname.toLowerCase().startsWith(this.state.search.toLowerCase()));
 
     const contactList = filteredContacts && filteredContacts.map(x => {
-      return <li key={x._id}><ContactTab contact={x} /></li>
+
+      return <li onClick={this.props.setPartner(x)} key={x._id}><ContactTab contact={x} /></li>
     })
 
     return (
