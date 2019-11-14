@@ -26,7 +26,7 @@ export default class ChatForm extends Component {
         <form className="chat-form" onSubmit={this.handleSubmit}>
           <div className="contact-head" style={{ "backgroundImage": `url(${this.state.user.picture})` }}></div>
           <input type="text" name="message" placeholder="Type your message here..." value={this.state.message} onChange={this.handleChange} />
-          <button type="submit">send</button>
+          {/* <button type="submit">send</button> */}
         </form>
       </div>
     )

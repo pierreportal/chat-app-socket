@@ -19,7 +19,7 @@ export default class MessagePost extends Component {
           <div className={`chat-bubble-head${style}`}>
             <div className='contact-head' style={{ 'backgroundImage': `url(${this.state.by.picture})` }}></div>
           </div>
-          <span className='chat-by'>{this.state.by._id === this.state.user._id ? 'me' : this.state.by.firstname}</span>
+          <span className='chat-by'>{this.state.by._id !== this.state.user._id && this.state.by.firstname}</span>
 
           <p>{this.state.content}</p>
 

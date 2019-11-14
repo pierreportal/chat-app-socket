@@ -22,7 +22,7 @@ export default class Sidebar extends Component {
   }
 
   render() {
-    const filteredContacts = this.state.contacts && this.state.contacts.filter(x => x.firstname.toLowerCase().startsWith(this.state.search.toLowerCase()));
+    const filteredContacts = this.state.contacts && this.state.contacts.filter(x => x._id !== this.state.user._id && x.firstname.toLowerCase().startsWith(this.state.search.toLowerCase()));
 
     const contactList = filteredContacts && filteredContacts.map(x => {
 
