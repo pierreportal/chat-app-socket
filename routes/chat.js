@@ -10,10 +10,9 @@ app.get('/users', (req, res) => {
 })
 
 app.get('/fakeAuth', (req, res) => {
-  User.findOne({ username: "Mastermin" }).then(data => {
-    return res.json(data)
-  }).catch(err => res.json(err))
+  return res.json(req.session.currentUser)
 })
+
 app.get('/messages', (req, res) => {
   Message.find({}).populate('by').then(data => {
     return res.json(data)
@@ -21,7 +20,6 @@ app.get('/messages', (req, res) => {
 })
 app.post('/messages', (req, res) => {
   const { to, by, message } = req.body
-  // console.log('TO:::::', to, 'BY:::::', by, "MESS:::::", message)
 
   Message.create({ by: by, content: message }).then(data => {
     return res.json(data)

@@ -8,6 +8,7 @@ export default class ContactTab extends Component {
   }
   render() {
     return (
+
       <div className="contact-tab">
         <div className="contact-head" style={{ "backgroundImage": `url(${this.state.picture})` }}></div>
         {this.state.firstName}

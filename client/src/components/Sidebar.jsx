@@ -6,7 +6,8 @@ export default class Sidebar extends Component {
   state = {
     search: "",
     user: this.props.user,
-    contacts: []
+    contacts: [],
+    // connectedUsers: this.props.connectedUsers
   }
   componentDidMount = () => {
     axios.get('/chat/users').then(response => {
@@ -21,12 +22,19 @@ export default class Sidebar extends Component {
     this.setState({ [name]: value })
   }
 
+  fastLogin = username => {
+    axios.post('auth/login', { username: username }).then(response => {
+      // console.log(response.data)
+
+    }).catch(err => console.log(err))
+  }
+
   render() {
     const filteredContacts = this.state.contacts && this.state.contacts.filter(x => x._id !== this.state.user._id && x.firstname.toLowerCase().startsWith(this.state.search.toLowerCase()));
 
     const contactList = filteredContacts && filteredContacts.map(x => {
 
-      return <li onClick={this.props.setPartner(x)} key={x._id}><ContactTab contact={x} /></li>
+      return <li key={x.username} onClick={() => this.fastLogin(x.username)}> <ContactTab contact={x} /*connected={this.state.connectedUsers.includes(x.firstname)}*/ /></li >
     })
 
     return (

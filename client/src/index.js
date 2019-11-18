@@ -6,24 +6,11 @@ import * as serviceWorker from './serviceWorker';
 import { BrowserRouter } from 'react-router-dom';
 import axios from 'axios'
 
-// TEMP USER
-// const tempUser = {
-//   _id: "abc",
-//   username: "pipo",
-//   firstanem: "Pierre",
-//   lastName: "Portal",
-//   password: "qwertyui",
-//   picture: ""
-// }
+
 
 
 axios.get('/chat/fakeAuth').then(response => {
-  // console.log(response.data)
 
-
-
-
-  // fakeUser !== null &&
 
   ReactDOM.render(
 
