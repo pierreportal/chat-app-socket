@@ -52,12 +52,12 @@ html {
 }
 .chat-area{
   display: flex;
-  flex-direction: column;
+  flex-direction: column-reverse;
   padding: 0 100px 0 100px;
   flex: 1;
-  overflow: scroll;
+  overflow: auto;
   margin-bottom: 150px;
-  background-color: #ffcccc;
+  /* background-color: #ffcccc; */
 }
 .chat-history{
   display: flex;
@@ -143,6 +143,12 @@ html {
   font-variant: small-caps;
   /* color: #777777; */
   color: #cc84a8;
+}
+.action-feedback{
+  color: #cc84a8;
+  position: fixed;
+  bottom: 140px;
+  font-weight: bold;
 }
 .chat-form{
   display: flex;

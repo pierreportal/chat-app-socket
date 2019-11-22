@@ -11,10 +11,10 @@ export default class Chat extends Component {
     user: this.props.user,
     to: this.props.partner,
     messageHistory: [],
-
     message: "",
-    response: "",
-    endpoint: "http://localhost:5555",
+
+    response: "", // socket io response
+    endpoint: "http://localhost:5555", // socket io connection
     actionFeedback: "",
     systemFeedback: ""
   }
@@ -25,6 +25,8 @@ export default class Chat extends Component {
       this.setState({ messageHistory: response.data })
     }).catch(err => console.log(err))
 
+    // ### Socket Client ####
+
     const { endpoint } = this.state;
     socket = socketIOClient(endpoint);
 
@@ -32,13 +34,9 @@ export default class Chat extends Component {
       const { type, message } = data
       if (type === 'message') {
         this.setState({ response: message })
-        //axios.post('/chat/messages', { by: this.state.user, to: this.state.to, message: message }).then(reponse => {
-        // console.log(response.data)
         axios.get('/chat/messages').then(response => {
           this.setState({ messageHistory: response.data })
         })
-        //this.setState({ messageHistory: response.data })
-        //}).catch(err => console.log(err))
       }
       else if (type === 'typing') this.setState({ actionFeedback: message })
       else if (type === 'system') {
@@ -46,21 +44,18 @@ export default class Chat extends Component {
         this.props.isConnected(message)
       }
     });
+    // ########################
 
     socket.send({ type: 'system', message: `${this.state.user.firstname} is connected.` })
   }
-
-
 
   isTyping = typing => {
     socket.send({ type: 'typing', message: typing })
   }
 
-
   postMessage = message => {
 
-    axios.post('/chat/messages', { by: this.state.user, to: this.state.to, message: message }).then(response => {
-      console.log(response.data)
+    axios.post('/chat/messages', { by: this.state.user, to: this.state.to, message: message }).then(() => {
       socket.send({ type: 'message', message: message })
       socket.send({ type: 'typing', message: null })
     }).catch(err => console.log(err))
@@ -68,8 +63,6 @@ export default class Chat extends Component {
       message: ""
     })
   }
-
-
 
   render() {
     const messageHistory = this.state.messageHistory.map(x => {
@@ -81,19 +74,22 @@ export default class Chat extends Component {
     systemFeedback.length && setTimeout(() => {
       this.setState({ systemFeedback: "" })
     }, 2000)
+    const c = "#ffcccc"
 
 
     return (
-      <div className="chat-area">
+      <div className="chat-area" style={{ "backgroundColor": `${c}` }}>
         <div className="chat-history">
           <ul>
             {messageHistory}
           </ul>
         </div>
-        <p>{actionFeedback}</p>
+        <p className="action-feedback">{actionFeedback}</p>
         <p className='system'>{systemFeedback}</p>
         <ChatForm postMessage={this.postMessage} user={this.state.user} isConnected={this.props.isConnected} isTyping={this.isTyping} />
       </div>
     )
   }
 }
+
+

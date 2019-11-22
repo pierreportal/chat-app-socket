@@ -45,7 +45,6 @@ app.use(require('node-sass-middleware')({
   sourceMap: true
 }));
 
-
 // app.set('views', path.join(__dirname, 'views'));
 // app.set('view engine', 'hbs');
 app.use(express.static(path.join(__dirname, 'public')));
@@ -53,11 +52,10 @@ app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 
 app.use(session({
   secret: 'keyBoard-cat',
-  // cookie: { maxAge: 6000 },
-  cookie: { maxAge: 24 * 60 * 60 },
+  cookie: { maxAge: 24 * 60 * 60 * 60 },
   store: new MongoStore({
     mongooseConnection: mongoose.connection,
-    // ttl: 24 * 60 * 60
+    ttl: 24 * 60 * 60
   })
 }));
 
@@ -72,6 +70,5 @@ app.use('/auth', auth);
 
 const chat = require('./routes/chat');
 app.use('/chat', chat);
-
 
 module.exports = app;
